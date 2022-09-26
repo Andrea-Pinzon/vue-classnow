@@ -1,30 +1,152 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+<div class="degrade">
+  <div id="app" class="app">
+    <div class="header">
+      <a href="Home"><h1>CN!</h1></a>
+
+      <nav v-if="is_auth">
+        <button>Inicio</button>
+        <button>Cuenta</button>
+        <button>Cerrar Sesión</button>
+      </nav>
+
+      <nav v-else>
+        <button @click="loadLogin">Iniciar Sesión</button>
+        <button @click="loadSignUp">Registrarse</button>
+      </nav>
+    </div>
+
+    <div class="main-component">
+      <router-view @completedLogin =completedLogin>
+
+      </router-view>
+    </div>
+
+    <div class="footer">
+      <h2>Grupo 7 - Class-Now!</h2>
+    </div>
+
+  </div>
+</div>
 </template>
 
+
+<script>
+// no se puede dejar vacio
+  export default {
+    name: 'app',
+    data: function(){
+      return{
+        is_auth: false,
+      }
+    },
+    methods: {
+      loadLogin: function(){
+        this.$router.push({name:'login'})
+      },
+      loadSignUp: function(){
+        this.$router.push({name:'signup'})
+      },
+      completedLogin: function(data){
+        console.log(data)
+      }
+    },
+    created: function(){
+
+    }
+  }
+</script>
+
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 
-nav {
-  padding: 30px;
+  @font-face {
+    font-family: Shapiro;
+    src: url(https://dl.dropbox.com/s/yrofnl512d28sx9/Shapiro.otf);
 }
+  * {
+    margin: 0;
+    padding: 0;
+  }
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+  body {
+    --main-color: #16a085;
+    --hover: #60d8ba;
+    --main-color-tras: rgba(22, 160, 133, 0.5);
+    --font-letra: 'Source Sans Pro', sans-serif;
+    --font-titulos: 'Shapiro';
+    font-family: var(--font-letra);
+    color: #000; 
 
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+    background-image: url(assets/Fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+  }
+
+  .degrade {
+    height: 100vh;
+    background: -webkit-linear-gradient(to left, transparent, var(--main-color));  /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(to left, transparent, var(--main-color)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .header {
+    width: 100%;
+    height: 10vh;
+    min-height: 80px; /*en el video esta de 100px*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .header h1 {
+    width: 20%;
+    margin-left: 20px;
+    font-family: var(--font-titulos);
+  }
+
+  .header a {
+    text-decoration: none;
+    color: #000;
+  }
+
+  .header nav {
+    width: 50%; /*en el video esta de 20%*/
+    height: 100%;
+    display: flex;
+    justify-content: flex-end; /*en el video esta space-around*/
+    align-items: center;
+    padding: 10px; /*en el video no esta*/
+    gap: 20px; /*en el video no esta*/
+  }
+  .header nav button {
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: transparent;
+    border: none;
+    font-size: 13px; /*en el video esta de 20px y en .header nav*/
+    font-family: var(--font-letra) ;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  .header nav button:hover {
+    background-color: var(--main-color);
+  }
+
+  .main-component {
+    height: 80vh; /*en el video esta 75vh */
+  }
+
+  .footer {
+    width: 100%;
+    height: 5vh; /*En el video esta en 10 para que min-height sea de 76*/
+    min-height: 45px; /*en el video esta de 80px */
+    background-color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
 </style>
