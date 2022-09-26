@@ -28,6 +28,7 @@
 
 
 <script>
+import axios from '../utils/axios';
 export default {
     name: 'SignUp',
     data: function(){
@@ -42,13 +43,27 @@ export default {
                     balance: 0,
                     isActive: true,
                 }
-
             }
+        }
+    },
+    methonds: {
+        processSignUp: function(){
+            axios.post("user/", this.user, {headers: {}})
+            .then((res) => {
+                let dataLogin = {
+                    username: this.user.username,
+                    token_access: res.data.access,
+                    token_refresh: res.data.refresh,
+                }
+                this.$emit('CompletedLogin', dataLogin)/*complete sign up! falta*/
+            })
+            .catch((error) =>{
+                alert("Error fallo en el registro.")
+            })
         }
     }
 }
 </script>
-
 
 <style>
     .signUp_user {
