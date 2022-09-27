@@ -41,6 +41,13 @@
       }
     },
     methods: {
+      verifyAuth: function(){
+        this.is_auth = localStorage.getItem("isAUth") || false;
+        if(this.is_auth)
+          this.$router.push({name: "home"})
+        else
+          this.$souter.push({name: "login"})
+      },
       loadLogin: function(){
         this.$router.push({name:'login'})
       },
@@ -48,7 +55,12 @@
         this.$router.push({name:'signup'})
       },
       completedLogin: function(data){
-        console.log(data)
+        logalStorage.setItem("isAuth", true),
+        logalStorage.setItem("username", data.username);
+        logalStorage.setItem("token_access", data.token_access);
+        logalStorage.setItem("token_refres", data.token_refresh);
+        alert("autenticacion Exitosa")
+        this.verifyAuth()
       }
     },
     created: function(){
