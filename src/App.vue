@@ -2,7 +2,7 @@
 <div class="degrade">
   <div id="app" class="app">
     <div class="header">
-      <a href="Home"><h1>CN!</h1></a>
+      <h1>CN!</h1>
 
       <nav v-if="is_auth">
         <button>Inicio</button>
@@ -116,11 +116,6 @@
     width: 20%;
     margin-left: 20px;
     font-family: var(--font-titulos);
-  }
-
-  .header a {
-    text-decoration: none;
-    color: #000;
   }
 
   .header nav {
