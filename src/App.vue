@@ -6,7 +6,7 @@
 
       <nav v-if="is_auth">
         <button @click="home">Inicio</button>
-        <button>Cuenta</button>
+        <button @click="perfil">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
       </nav>
 
@@ -42,7 +42,7 @@
     },
     methods: {
       verifyAuth: function(){
-        this.is_auth = localStorage.getItem("isAUth") || false;
+        this.is_auth = localStorage.getItem("isAuth") || false;
         if(this.is_auth)
           this.$router.push({name: "home"})
         else
@@ -56,6 +56,9 @@
       },
       loadHome: function(){
         this.$router.push({name:'home'})
+      },
+      perfil: function(){
+        this.$router.push({name:'profile'})
       },
       logout: function(){
         logalStorage.clear();
