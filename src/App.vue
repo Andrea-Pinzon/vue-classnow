@@ -5,9 +5,9 @@
       <h1>CN!</h1>
 
       <nav v-if="is_auth">
-        <button>Inicio</button>
+        <button @click="home">Inicio</button>
         <button>Cuenta</button>
-        <button>Cerrar Sesión</button>
+        <button @click="logout">Cerrar Sesión</button>
       </nav>
 
       <nav v-else>
@@ -53,6 +53,14 @@
       },
       loadSignUp: function(){
         this.$router.push({name:'signup'})
+      },
+      loadHome: function(){
+        this.$router.push({name:'home'})
+      },
+      logout: function(){
+        logalStorage.clear();
+        alert("Sesión Cerrada");/*eliminara todas las claves, llave valor */
+        this.verifyAuth();
       },
       completedLogin: function(data){
         logalStorage.setItem("isAuth", true),
