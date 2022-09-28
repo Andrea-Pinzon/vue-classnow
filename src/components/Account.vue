@@ -35,15 +35,16 @@ export default {
             let token = localStorage.getItem("token_access");
             let userId = jwt_decode(token).usserId.toString();
 
-            axios.get("user/"+userId, {headers:{"Authorization": "Bearer " + token}})
-                .then (res => {
+            axios.get("user/"+userId + "/", {headers:{"Authorization": "Bearer " + token}})
+                .then ((result) => {
                     this.name = result.data.name;
                     this.email = result.data.email;
                     this.balance = result.data.account.balance;
                     this.loaded = true;
                 })
-                .catch(()=>{
-                    this.$emit("logOut")
+                .catch((err)=>{
+                    console.log(err)
+                    this.$emit("logout")
                 })
         },
         

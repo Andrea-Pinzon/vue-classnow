@@ -5,8 +5,8 @@
       <h1>CN!</h1>
 
       <nav v-if="is_auth">
-        <button @click="home">Inicio</button>
-        <button>Cuenta</button>
+        <button @click="loadhome">Inicio</button>
+        <button @click="loadAccount">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
       </nav>
 
@@ -58,6 +58,9 @@
       },
       loadHome: function(){
         this.$router.push({name:'home'})
+      },
+      loadAccount: function(){
+        this.$router.push({name:'account'})
       },
       logout: function(){
         logalStorage.clear();
