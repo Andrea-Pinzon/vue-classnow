@@ -1,7 +1,7 @@
 <template>
     <div class="signUp_user">
         <div class="container_signUp_user">
-            <h2>Registrarse aqui de prueba!</h2>
+            <h2>Registrarse</h2>
 
             <form @submit.prevent="processSignUp">
                 <input type="text" v-model="user.usermane" placeholder="Username">
