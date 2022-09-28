@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div v-if ="loaded" class="home">
         <div class="informacion">
             <h1>Este es el perfil!</h1>
             <h2>Informacion sobre la cuenta</h2>
@@ -12,7 +12,56 @@
 </template>
 
 <script>
+import axios from '../utils/axios'
+import jwt_decode from "jwt-decode"
 
+export default {
+    name:"Account",
+    data: function(){
+        return {
+            name: "",
+            email: "",
+            balance: "",
+            loaded: false
+        }
+    },
+    methods: {
+        getData: async function(){
+            if(localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null ){
+                this.$emit('logout')
+            }
+            await this.verifyToken();
+
+            let token = localStorage.getItem("token_access");
+            let userId = jwt_decode(token).usserId.toString();
+
+            axios.get("user/"+userId, {headers:{"Authorization": "Bearer " + token}})
+                .then (res => {
+                    this.name = result.data.name;
+                    this.email = result.data.email;
+                    this.balance = result.data.account.balance;
+                    this.loaded = true;
+                })
+                .catch(()=>{
+                    this.$emit("logOut")
+                })
+        },
+        
+        verifyToken: function(){
+            let refresh = localStorage.getItem("token_refresh")
+            return axios.post("refresh/", {refresh})
+                .then(res => {
+                    localStorage.setItem("token_access", res.data.access)
+                })
+                .catch(()=>{
+                    this.$emit("logOut")
+                })
+        }
+    },
+    created: function(){
+        this.getData();
+    }
+}
 </script>
 
 

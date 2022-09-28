@@ -6,7 +6,7 @@
 
       <nav v-if="is_auth">
         <button @click="home">Inicio</button>
-        <button @click="cuenta">Cuenta</button>
+        <button>Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
       </nav>
 
@@ -17,7 +17,9 @@
     </div>
 
     <div class="main-component">
-      <router-view @completedLogin =completedLogin>
+      <router-view 
+        @completedLogin = "completedLogin"
+        @logout="logout">
 
       </router-view>
     </div>
@@ -56,9 +58,6 @@
       },
       loadHome: function(){
         this.$router.push({name:'home'})
-      },
-      cuenta: function(){
-        this.$router.push({name:'account'})
       },
       logout: function(){
         logalStorage.clear();
