@@ -18,7 +18,7 @@
                 <br>
                 <input type="text" v-model="user.rol" placeholder="Rol"/>
                 <br>
-                
+
                 <button type="submit">Registrarse</button>
             </form>
 
