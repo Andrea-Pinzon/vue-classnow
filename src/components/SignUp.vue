@@ -14,13 +14,7 @@
                 <br> 
                 <input type="text" v-model="user.phone" placeholder="Phone">
                 <br>
-                <input type="text" v-model="user.age" placeholder="Edad">
-                <br>
-                <input type="text" v-model="user.city" placeholder="Ciudad">
-                <br>
                 <input type="password" v-model="user.password" placeholder="Password">
-                <br>
-                <input type="text" v-model="user.gen" placeholder="Genero">
                 <br>
                 <input type="text" v-model="user.rol" placeholder="Rol">
                 <br>
@@ -46,16 +40,13 @@ export default {
     data: function(){
         return {
             user:{
-                username: "",
-                name: "",
-                lastname: "",
-                email: "",
-                phone: "",
-                age: "",
-                city: "",
-                password: "",
-                gen: "",
-                rol: "",
+                username: '',
+                name: '',
+                lastname: '',
+                email: '',
+                phone: '',
+                password: '',
+                rol: '',
                 account: {
                     lastChangeDate:(new Date()),
                     balance: 0,

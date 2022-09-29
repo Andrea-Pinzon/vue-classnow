@@ -6,9 +6,6 @@
             <h3>Nombre Completo: <span>{{name}} {{lastname}}</span></h3>
             <h3>Correo: <span>{{email}}</span></h3>
             <h3>Celular: <span>{{phone}}</span></h3>
-            <h3>Edad: <span>{{age}}</span></h3>
-            <h3>Ciudad: <span>{{city}}</span></h3>
-            <h3>Genero: <span>{{gen}}</span></h3>
             <h3>Saldo: <span>{{balance}}</span></h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, impedit. Earum doloremque illo, nobis quibusdam, odio recusandae consequuntur sit temporibus impedit enim. <br> Rem nobis temporibus perferendis fugit similique perspiciatis, libero, facilis laborum quaerat voluptates aliquam dicta aspernatur a vel delectus quo. Maiores molestias nisi cumque velit! Nesciunt praesentium alias repellendus distinctio dicta odit odio quibusdam.</p>
         </div>
@@ -28,10 +25,7 @@ export default {
             lastname: "",
             email: "",
             phone: "",
-            age: "",
-            city: "",
             password: "",
-            gen: "",
             rol: "",
             loaded: false
         }
@@ -55,9 +49,6 @@ export default {
 
                     this.email = result.data.email;
                     this.phone = result.data.phone;
-                    this.age = result.data.age;
-                    this.city = result.data.city;
-                    this.gen = result.data.gen;
 
                     this.balance = result.data.account.balance;
                     this.loaded = true;
