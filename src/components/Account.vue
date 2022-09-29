@@ -43,13 +43,10 @@ export default {
             axios.get("user/"+userId + "/", {headers:{"Authorization": "Bearer " + token}})
                 .then ((result) => {
                     this.username = result.data.username;
-
                     this.name = result.data.name;
                     this.lastname = result.data.lastname;
-
                     this.email = result.data.email;
                     this.phone = result.data.phone;
-
                     this.balance = result.data.account.balance;
                     this.loaded = true;
                 })
