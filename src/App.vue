@@ -62,18 +62,17 @@
         this.$router.push({name:'account'})
       },
       logout: function(){
-        logalStorage.clear();
+        localStorage.clear();
         alert("Sesión Cerrada");/*eliminara todas las claves, llave valor */
         this.verifyAuth();
       },
-      completedLogin: function(data){
-        console.log(data)
-        /*logalStorage.setItem("isAuth", true),
-        logalStorage.setItem("username", data.username);
-        logalStorage.setItem("token_access", data.token_access);
-        logalStorage.setItem("token_refres", data.token_refresh);
+      completedLogin: function(data) {
+        localStorage.setItem("isAuth", true);
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("token_access", data.token_access);
+        localStorage.setItem("token_refresh", data.token_refresh);
         alert("autenticacion Exitosa")
-        this.verifyAuth()*/
+        this.verifyAuth()
       }
     },
     created: function(){
