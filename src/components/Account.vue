@@ -1,12 +1,16 @@
 <template>
     <div v-if ="loaded" class="home">
         <div class="informacion">
-            <h1>Este es el perfil!</h1>
+            <h1>Este es el perfil de {{username}}</h1>
             <h2>Informacion sobre la cuenta</h2>
-            <h3>Nombre: <span>{{name}}</span></h3>
-            <h3>Saldo: <span>{{balance}}</span></h3>
+            <h3>Nombre Completo: <span>{{name}} {{lastname}}</span></h3>
             <h3>Correo: <span>{{email}}</span></h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, impedit. Earum doloremque illo, nobis quibusdam, odio recusandae consequuntur sit temporibus impedit enim, quia eos unde doloribus eligendi repellendus? <br> Rem nobis temporibus perferendis fugit similique perspiciatis, libero, facilis laborum quaerat voluptates aliquam dicta aspernatur a vel delectus quo. Maiores molestias nisi cumque velit! Nesciunt praesentium alias repellendus distinctio dicta odit odio quibusdam.</p>
+            <h3>Celular: <span>{{phone}}</span></h3>
+            <h3>Edad: <span>{{age}}</span></h3>
+            <h3>Ciudad: <span>{{city}}</span></h3>
+            <h3>Genero: <span>{{gen}}</span></h3>
+            <h3>Saldo: <span>{{balance}}</span></h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, impedit. Earum doloremque illo, nobis quibusdam, odio recusandae consequuntur sit temporibus impedit enim. <br> Rem nobis temporibus perferendis fugit similique perspiciatis, libero, facilis laborum quaerat voluptates aliquam dicta aspernatur a vel delectus quo. Maiores molestias nisi cumque velit! Nesciunt praesentium alias repellendus distinctio dicta odit odio quibusdam.</p>
         </div>
     </div>
 </template>
@@ -19,9 +23,16 @@ export default {
     name:"Account",
     data: function(){
         return {
+            username: "",
             name: "",
+            lastname: "",
             email: "",
-            balance: "",
+            phone: "",
+            age: "",
+            city: "",
+            password: "",
+            gen: "",
+            rol: "",
             loaded: false
         }
     },
@@ -37,8 +48,17 @@ export default {
 
             axios.get("user/"+userId + "/", {headers:{"Authorization": "Bearer " + token}})
                 .then ((result) => {
+                    this.username = result.data.username;
+
                     this.name = result.data.name;
+                    this.lastname = result.data.lastname;
+
                     this.email = result.data.email;
+                    this.phone = result.data.phone;
+                    this.age = result.data.age;
+                    this.city = result.data.city;
+                    this.gen = result.data.gen;
+
                     this.balance = result.data.account.balance;
                     this.loaded = true;
                 })
@@ -76,6 +96,8 @@ export default {
     }
     .informacion {
         width: 70%;
+        height: 80%;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;

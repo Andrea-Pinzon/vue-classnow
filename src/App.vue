@@ -25,7 +25,7 @@
     </div>
 
     <div class="footer">
-      <h2>Grupo 7 - Class-Now!</h2>
+      <h2>Class-Now!</h2>
     </div>
 
   </div>
