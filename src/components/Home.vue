@@ -13,7 +13,7 @@
         name: "Home",
         data: function(){
             return {
-                username: localStorage.getItem("username") ||  "none"
+                username: localStorage.getItem("username") ||  ""
             }
         },
         methods: {
