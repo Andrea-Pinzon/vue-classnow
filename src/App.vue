@@ -20,7 +20,6 @@
       <router-view 
         @completedLogin = "completedLogin"
         @logout="logout">
-
       </router-view>
     </div>
 

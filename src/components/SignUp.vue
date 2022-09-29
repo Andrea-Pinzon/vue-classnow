@@ -2,7 +2,6 @@
     <div class="signUp_user">
         <div class="container_signUp_user">
             <h2>Registrarse</h2>
-
             <form @submit.prevent="processSignUp">
                 <input type="text" v-model="user.username" placeholder="Username">
                 <br>
@@ -18,7 +17,7 @@
                 <br>
                 <input type="text" v-model="user.rol" placeholder="Rol">
                 <br>
-                
+
                 <input type="number" v-model="user.account.balance" placeholder="Initial Balance">
                 <br>
                 <button type="submit">Registrarse</button>
