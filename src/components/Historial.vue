@@ -1,6 +1,6 @@
 <template>
     <div class="historial">
-        <h1></h1>
+        <h1>Este es el historial de las clases.</h1>
     </div>
     
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div class="pagos">
-        <h1></h1>
+        <h1>Esta es la ventana de pagos</h1>
     </div>
     
 </template>
