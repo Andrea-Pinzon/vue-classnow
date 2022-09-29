@@ -68,12 +68,13 @@
         this.verifyAuth();
       },
       completedLogin: function(data){
-        logalStorage.setItem("isAuth", true),
+        console.log(data)
+        /*logalStorage.setItem("isAuth", true),
         logalStorage.setItem("username", data.username);
         logalStorage.setItem("token_access", data.token_access);
         logalStorage.setItem("token_refres", data.token_refresh);
         alert("autenticacion Exitosa")
-        this.verifyAuth()
+        this.verifyAuth()*/
       }
     },
     created: function(){

@@ -3,24 +3,22 @@
         <div class="container_signUp_user">
             <h2>Registrarse</h2>
 
-            <form @submit.prevent="processSignUp">
-                <input type="text" v-model="user.username" placeholder="Username">
+            <form @submit.prevent= "processSignUp">
+                <input type="text" v-model="user.username" placeholder="Username"/>
                 <br>
-                <input type="text" v-model="user.name" placeholder="Nombres">
+                <input type="text" v-model="user.nombres" placeholder="Nombres"/>
                 <br>
-                <input type="text" v-model="user.lastname" placeholder="Apellidos">
+                <input type="text" v-model="user.apellidos" placeholder="Apellidos"/>
                 <br>
-                <input type="email" v-model="user.email" placeholder="Email">
+                <input type="email" v-model="user.email" placeholder="Email"/>
                 <br> 
-                <input type="text" v-model="user.phone" placeholder="Phone">
+                <input type="text" v-model="user.celular" placeholder="Celular"/>
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password">
+                <input type="password" v-model="user.password" placeholder="Password"/>
                 <br>
-                <input type="text" v-model="user.rol" placeholder="Rol">
+                <input type="text" v-model="user.rol" placeholder="Rol"/>
                 <br>
                 
-                <input type="number" v-model="user.account.balance" placeholder="Initial Balance">
-                <br>
                 <button type="submit">Registrarse</button>
             </form>
 
@@ -36,26 +34,25 @@
 <script>
 import axios from '../utils/axios';
 export default {
-    name: 'SignUp',
-    data: function(){
+    name: "SignUp",
+    data: function() {
         return {
-            user:{
-                username: '',
-                name: '',
-                lastname: '',
-                email: '',
-                phone: '',
-                password: '',
-                rol: '',
+            user: {
+                username: "",
+                nombres: "",
+                apellidos: "",
+                email: "",
+                celular: "",
+                password: "",
+                rol: "",
                 account: {
-                    lastChangeDate:(new Date()),
-                    balance: 0,
+                    lastChangeDate: (new Date()),
                     isActive: true,
                 }
             }
         }
     },
-    methonds: {
+    methods: {
         processSignUp: function(){
             axios.post("user/", this.user, {headers: {}})
             .then((res) => {
@@ -67,7 +64,7 @@ export default {
                 this.$emit('CompletedLogin', dataLogin)/*complete sign up! falta*/
             })
             .catch((error) =>{
-                alert("Error fallo en el registro.")
+                alert("Error: fallo en el registro.")
             })
         }
     }
