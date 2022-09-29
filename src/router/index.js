@@ -4,6 +4,8 @@ import SignUp from '../components/SignUp';
 import Home from '../components/Home';
 import Account from '../components/Account';
 import Clase from '../components/Clase'
+import Historial from '../components/Historial';
+import Pagos from '../components/Pagos'
 
 
 const routes = [
@@ -31,6 +33,16 @@ const routes = [
     path: '/clase',
     name: 'clase',
     component: Clase
+  },
+  {
+    path: '/historial',
+    name: 'historial',
+    component: Historial
+  },
+  {
+    path: '/pagos',
+    name: 'pagos',
+    component: Pagos
   }
 ]
 
