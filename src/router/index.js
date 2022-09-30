@@ -6,8 +6,8 @@ import Account from '../components/Account';
 
 import Clase from '../components/Clase';
 import EditClase from '../components/EditClase';
-import EditClase from '../components/DeleteClase';
-import EditClase from '../components/NewClase';
+import DeleteClase from '../components/DeleteClase';
+import NewClase from '../components/NewClase';
 
 import Historial from '../components/Historial';
 import Pagos from '../components/Pagos'
@@ -50,7 +50,7 @@ const routes = [
     component: DeleteClase
   },
   {
-    path: '/account/clase/:claseId/new',
+    path: '/account/clase/new',
     name: 'new',
     component: NewClase
   },

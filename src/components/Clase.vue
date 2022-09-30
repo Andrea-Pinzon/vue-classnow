@@ -3,9 +3,14 @@
         <div class="row">
             <div class="col text-left">
                 <h2>Lista de clases</h2>
-                
+
+                <div class="">
+                    <b-button size="sm" :to="{name: 'NewClase'}" variant="primary">Nueva Clase</b-button>
+                </div>
+                <br>
+
                 <div class="col-md-12">
-                    <!-- <d-table striped hover: items="books" : fields="fields"> -->
+                    <d-table striped hover: items="books" : fields="fields">
 
 <!-- Errores presentados por ser bootstrap -->
                         <!-- <template slot ="action" slot-scope="data"> -->
@@ -14,8 +19,7 @@
                             <!-- <b-button size="sm" variant="primary":to="{name'EditClase', params: {claseId:data.item.id}}">Editar</b-button> -->
                             <!-- <b-button size="sm" variant="danger" :to="{name'DeleteClase', params: {claseId:data.item.id}}">Eliminar</b-button> -->
                         <!-- </template> -->
-
-                    <!-- </d-table> -->
+                    </d-table>
                 </div>
                 
             </div>

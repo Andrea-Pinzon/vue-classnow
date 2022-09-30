@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col text-left"></div>
-            <h2>Editar Libro</h2>
+            <h2>Editar Clase</h2>
         </div>
     </div>
 
