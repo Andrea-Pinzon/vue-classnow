@@ -5,8 +5,15 @@
                 <h2>Lista de clases</h2>
                 
                 <div class="col-md-12">
-                    <d-table striped hover: items="books" : fields="fields">
-                    </d-table>
+                    <!-- <d-table striped hover: items="books" : fields="fields"> -->
+
+<!-- Errores presentados por ser bootstrap -->
+                        <!-- <template slot ="action" slot-scope="data"> -->
+                            <!-- <b-button size="sm" variant="primary">Editar</b-button> -->
+                            <!-- <b-button size="sm" variant="danger">Eliminar</b-button> -->
+                        <!-- </template> -->
+
+                    <!-- </d-table> -->
                 </div>
                 
             </div>
@@ -28,7 +35,7 @@ export default {
                 { key: 'fecha', label: 'Fecha'},
                 { key: 'estudiante.id', label: 'Estudiate'},
                 { key: 'profesor.id', label: 'Profesor'},
-                { key: 'action', label: 'Accion'}
+                { key: 'action', label: ''}
             ],
             books: []
         }

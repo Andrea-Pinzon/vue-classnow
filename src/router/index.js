@@ -4,7 +4,9 @@ import SignUp from '../components/SignUp';
 import Home from '../components/Home';
 import Account from '../components/Account';
 
-import Clase from '../components/Clase'
+import Clase from '../components/Clase';
+import EditClase from '../components/EditClase'
+
 import Historial from '../components/Historial';
 import Pagos from '../components/Pagos'
 
@@ -31,17 +33,22 @@ const routes = [
     component: Account
   },
   {
-    path: '/clase',
+    path: '/account/clase',
     name: 'clase',
     component: Clase
   },
   {
-    path: '/historial',
+    path: '/account/clase/editclase',
+    name: 'editclase',
+    component: EditClase
+  },
+  {
+    path: '/account/historial',
     name: 'historial',
     component: Historial
   },
   {
-    path: '/pagos',
+    path: '/account/pagos',
     name: 'pagos',
     component: Pagos
   }
