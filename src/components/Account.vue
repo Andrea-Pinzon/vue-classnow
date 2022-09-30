@@ -9,7 +9,7 @@
         </div>
         
        <div class="botonescost">
-            <button @click="volverahome">Agenda tu clase</button>
+            <button @click="agendaTuClase">Agenda tu clase</button>
             <button @click="Historial">Historial</button>
             <button @click="Pagos">Metodos de pago</button>
         </div>
@@ -68,28 +68,14 @@ export default {
                     })
             }
         },
+        agendaTuClase: function(){
+        this.$router.push({name: "clase"})
+        },
         created: function(){
             this.getData();
-        },
-
-/*Aqui termina */
-
-
-
-
-   /* volverahome: function(){
-        this.$router.push({name:'clase'})
-      },
-    Historial: function(){
-        this.$router.push({name:'historial'})
-      },
-    Pagos: function(){
-        this.$router.push({name:'pagos'})
-      },*/
+        }
 }    
 </script>
-
-
 
 <style scoped>
     .infoperfil {

@@ -73,7 +73,8 @@
         localStorage.setItem("token_refresh", data.token_refresh);
         /*alert("Autenticación exitosa")*/
         this.verifyAuth()
-      }
+      },
+      
     },
     created: function(){
     }

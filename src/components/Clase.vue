@@ -4,13 +4,13 @@
             <div class="col text-left">
                 <h2>Lista de clases</h2>
 
-                <div class="">
+                <!--<div class="">
                     <b-button size="sm" :to="{name: 'NewClase'}" variant="primary">Nueva Clase</b-button>
                 </div>
-                <br>
+                <br>-->
 
                 <div class="col-md-12">
-                    <d-table striped hover: items="books" : fields="fields">
+                    <b-table striped hover :items="clases" :fields="fields">
 
 <!-- Errores presentados por ser bootstrap -->
                         <!-- <template slot ="action" slot-scope="data"> -->
@@ -19,9 +19,8 @@
                             <!-- <b-button size="sm" variant="primary":to="{name'EditClase', params: {claseId:data.item.id}}">Editar</b-button> -->
                             <!-- <b-button size="sm" variant="danger" :to="{name'DeleteClase', params: {claseId:data.item.id}}">Eliminar</b-button> -->
                         <!-- </template> -->
-                    </d-table>
+                    </b-table>
                 </div>
-                
             </div>
         </div>
     </div>
@@ -35,25 +34,25 @@ export default {
     data(){
         return {
             fields: [
-                { key: 'Id', label: 'Id'},
+                { key: 'id', label: 'Id'},
                 { key: 'tema', label: 'Tema'},
                 { key: 'hora', label: 'Hora'},
                 { key: 'fecha', label: 'Fecha'},
-                { key: 'estudiante.id', label: 'Estudiate'},
-                { key: 'profesor.id', label: 'Profesor'},
-                { key: 'action', label: ''}
+                { key: 'profesor', label: 'Profesor'},
+                { key: 'estudiante', label: 'Estudiante'},
+                { key: 'action', label: 'Accion'}
             ],
-            books: []
+            clases: []
         }
     },
     methods: {
         getClass (){
-            const path = 'URL'/*no se cual es xD */
+            const path = 'https://classnow-be.herokuapp.com/clases/' /*no se cual es xD */
             axios.get(path).then((response) => {
-                this.Class = response.data/*no estoy segura si es this.class */
+                this.clases = response.data/*no estoy segura si es this.class */
             })
             .catch((error) =>{
-                console.log(Error)
+                console.log(error)
             })
         }
     },
@@ -82,7 +81,7 @@ export default {
 
 
 <style>
-    .clase {
+    /*.clase {
         background-color: red;
     }
 
