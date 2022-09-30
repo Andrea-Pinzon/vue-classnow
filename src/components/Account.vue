@@ -1,13 +1,17 @@
 <template>
-    <div v-if ="loaded" class="home">
-        <div class="informacion">
-            <h1>Este es el perfil de {{username}}</h1>
-            <h2>Informacion sobre la cuenta</h2>
-            <h3>Nombre Completo: <span>{{name}} {{lastname}}</span></h3>
-            <h3>Correo: <span>{{email}}</span></h3>
-            <h3>Celular: <span>{{phone}}</span></h3>
-            <h3>Saldo: <span>{{balance}}</span></h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, impedit. Earum doloremque illo, nobis quibusdam, odio recusandae consequuntur sit temporibus impedit enim. <br> Rem nobis temporibus perferendis fugit similique perspiciatis, libero, facilis laborum quaerat voluptates aliquam dicta aspernatur a vel delectus quo. Maiores molestias nisi cumque velit! Nesciunt praesentium alias repellendus distinctio dicta odit odio quibusdam.</p>
+    <div class="infoperfil">
+        <div class="perfil">
+            <h1>Informacion Personal</h1>
+            <p>Username: <span>{{username}}</span></p>
+            <p>Nombre Completo: <span>{{name}} {{lastname}}</span></p>
+            <p>Correo: <span>{{email}}</span></p>
+            <p>Celular: <span>{{phone}}</span></p>
+        </div>
+
+        <div class="botonescost">
+            <button @click="volverahome">Agenda tu clase</button>
+            <button @click="Historial">Historial</button>
+            <button @click="Pagos">Metodos de pago</button>
         </div>
     </div>
 </template>
@@ -17,98 +21,103 @@ import axios from '../utils/axios'
 import jwt_decode from "jwt-decode"
 
 export default {
-    name:"Account",
+    name:"account",
     data: function(){
         return {
-            username: "",
-            name: "",
-            lastname: "",
-            email: "",
-            phone: "",
-            password: "",
-            rol: "",
+            username: '',
+            name: '',
+            lastname: '',
+            email: '',
+            phone: '',
+            rol: '',
             loaded: false
         }
     },
     methods: {
-        getData: async function(){
-            if(localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null ){
-                this.$emit('logout')
-            }
-            await this.verifyToken();
-
-            let token = localStorage.getItem("token_access");
-            let userId = jwt_decode(token).usserId.toString();
-
-            axios.get("user/"+userId + "/", {headers:{"Authorization": "Bearer " + token}})
-                .then ((result) => {
-                    this.username = result.data.username;
-                    this.name = result.data.name;
-                    this.lastname = result.data.lastname;
-                    this.email = result.data.email;
-                    this.phone = result.data.phone;
-                    this.balance = result.data.account.balance;
-                    this.loaded = true;
-                })
-                .catch((err)=>{
-                    console.log(err)
-                    this.$emit("logout")
-                })
-        },
-        
-        verifyToken: function(){
-            let refresh = localStorage.getItem("token_refresh")
-            return axios.post("refresh/", {refresh})
-                .then(res => {
-                    localStorage.setItem("token_access", res.data.access)
-                })
-                .catch(()=>{
-                    this.$emit("logOut")
-                })
-        }
-    },
-    created: function(){
-        this.getData();
+    volverahome: function(){
+        this.$router.push({name:'clase'})
+      },
+    Historial: function(){
+        this.$router.push({name:'historial'})
+      },
+    Pagos: function(){
+        this.$router.push({name:'pagos'})
+      },
     }
 }
 </script>
 
 
-<style>
-    .home {
+
+<style scoped>
+    .infoperfil {
         width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .informacion {
-        width: 70%;
+
+    .perfil {
+        width: 50%;
         height: 80%;
+        padding: 25px 40px;
+        box-sizing: border-box;
         overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .perfil h1 {
+        width: 80%;
+        font-family: var(--font-letra);
+        text-transform: uppercase;
+    }
+
+    .perfil p {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    .perfil span {
+        width: 60%;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 1px solid #000;
+        border-radius: 10px;
+        font-family: var(--font-letra);
+        font-weight: bold;
+        text-transform: capitalize;
+    }
+
+    .botonescost {
+        width: 50%;
+        height: 80%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        text-align: center;
+        gap: 20px;
     }
 
-    .informacion h1 {
-        width: 80%;
-        margin-left: 20px;
-        font-family: var(--font-titulos);
+    .botonescost button {
+        width: 50%;
+        padding: 10px 20px;
+        background-color: transparent;
+        border: 1px solid #000;
+        border-radius: 10px;
+        font-family: var(--font-letra);
+        font-weight: bold;
+        text-transform: uppercase;
     }
 
-    .informacion h2 {
-        background-color: orange;
-    }
-
-    .informacion h3 {
-        background-color: pink;
-    }
-
-    .informacion p {
-        padding: 0 20px;
+    .botonescost button:hover {
+        background-color: var(--main-color);
+        border-color: transparent;
     }
 </style>

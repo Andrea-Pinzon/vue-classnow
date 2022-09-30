@@ -5,7 +5,7 @@
       <h1>CN!</h1>
 
       <nav v-if="is_auth">
-        <button @click="loadhome">Inicio</button>
+        <button @click="loadHome">Inicio</button>
         <button @click="loadAccount">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
       </nav>
@@ -63,7 +63,7 @@
       },
       logout: function(){
         localStorage.clear();
-        alert("Sesión Cerrada");/*eliminara todas las claves, llave valor */
+        alert("Sesión Cerrada");
         this.verifyAuth();
       },
       completedLogin: function(data) {
@@ -71,12 +71,11 @@
         localStorage.setItem("username", data.username);
         localStorage.setItem("token_access", data.token_access);
         localStorage.setItem("token_refresh", data.token_refresh);
-        alert("autenticacion Exitosa")
+        alert("Autenticación Exitosa")
         this.verifyAuth()
       }
     },
     created: function(){
-
     }
   }
 </script>

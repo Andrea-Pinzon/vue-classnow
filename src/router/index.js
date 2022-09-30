@@ -3,6 +3,7 @@ import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
 import Account from '../components/Account';
+
 import Clase from '../components/Clase'
 import Historial from '../components/Historial';
 import Pagos from '../components/Pagos'
@@ -15,17 +16,17 @@ const routes = [
     component: Home
   },
   {
-    path: '/login',
+    path: '/user/login',
     name: 'login',
     component: Login
   },
   {
-    path: '/signup',
+    path: '/user/signup',
     name: 'signup',
     component: SignUp
   },
   {
-    path: '/account',
+    path: '/user/account',
     name: 'account',
     component: Account
   },

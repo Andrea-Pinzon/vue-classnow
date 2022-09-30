@@ -1,37 +1,25 @@
 <template>
     <div class="clase">
-        <div class="informacion_perfil">
-            <h1>Informacion Personal</h1>
-            <p>Nombre Completo: <span>{{name}} {{lastname}}</span></p>
-            <p>Correo: <span>{{email}}</span></p>
-            <p>Celular: <span>{{phone}}</span></p>
-            <p>Saldo: <span>{{balance}}</span></p>
-        </div>
-
-        <div class="botones">
-            <button @click="volverahome">Agenda tu clase</button>
-            <button @click="Historial">Historial</button>
-            <button @click="Pagos">Metodos de pago</button>
-        </div>
+        <h1>Aqui van las clases</h1>
     </div>
 </template>
 
 <script>
-export default {
-    name: 'clase',
+// export default {
+//     name: 'clase',
 
-    methods: {
-        volverahome: function(){
-        this.$router.push({name:'home'})
-      },
-        Historial: function(){
-        this.$router.push({name:'historial'})
-      },
-        Pagos: function(){
-        this.$router.push({name:'pagos'})
-      },
-    }
-}
+//     methods: {
+//         volverahome: function(){
+//         this.$router.push({name:'home'})
+//       },
+//         Historial: function(){
+//         this.$router.push({name:'historial'})
+//       },
+//         Pagos: function(){
+//         this.$router.push({name:'pagos'})
+//       },
+//     }
+// }
 </script>
 
 
@@ -39,12 +27,11 @@ export default {
 
 
 <style>
-    /* .clase {
-        background-color: red;
-    } */
-
-
     .clase {
+        background-color: red;
+    }
+
+    /* .clase {
         width: 100%;
         height: 100%;
         display: flex;
@@ -112,5 +99,5 @@ export default {
     .botones button:hover {
         background-color: var(--main-color);
         border-color: transparent;
-    }
+    } */
 </style>
