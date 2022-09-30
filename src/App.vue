@@ -5,6 +5,7 @@
       <h1>CN!</h1>
 
       <nav v-if="is_auth">
+        <span>Bienvenido {{username}}!!</span>
         <button @click="loadHome">Inicio</button>
         <button @click="loadAccount">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
@@ -39,6 +40,7 @@
     data: function(){
       return{
         is_auth: false,
+        username: localStorage.getItem("username") ||  ''
       }
     },
     methods: {
@@ -138,6 +140,12 @@
     padding: 10px; /*en el video no esta*/
     gap: 20px; /*en el video no esta*/
   }
+
+  .header span {
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+
   .header nav button {
     padding: 10px 20px;
     border-radius: 10px;
