@@ -9,7 +9,7 @@
         </div>
         
        <div class="botonescost">
-            <button @click="agendaTuClase">Agenda tu clase</button>
+            <button @click="agendaTuClase" >Agenda tu clase</button>
             <button @click="Historial">Historial</button>
             <button @click="Pagos">Metodos de pago</button>
         </div>
