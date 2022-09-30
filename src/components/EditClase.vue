@@ -11,7 +11,7 @@
             <div class="card">
                 <div class="car-body">
 
-                    <form @onSubmit="onSubmit">
+                    <form @Submit="onSubmit">
 <!-- espacios de la tabla -->
                         <div class="form-group row">
                             <label for="title" class="col.sm2 col-form-label">Tema</label>
@@ -81,6 +81,20 @@ export default {
     methods: {
         onsubmit(evt){
             evt.preventDefault()
+            const path= 'URL/${this.claseId}/'
+
+            axios.put(path, this.form).then((response) => {
+                this.form.tema = response.data.tema
+                this.form.hora = response.data.hora
+                this.form.fecha = response.data.fecha
+                this.form.estudiantes = response.data.estudiantes
+                this.form.profesor = response.data.profesor
+
+                alert("Clase actualizada exitosamente.")
+            }) 
+            .catch ((error) => {
+                console.log(error)
+            })
         },
         getClasse(){
             const path= 'URL/${this.claseId}/'
