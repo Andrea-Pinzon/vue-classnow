@@ -57,7 +57,6 @@ const routes = [
     component: NewClase
   },
 
-  
   {
     path: '/historial',
     name: 'historial',
