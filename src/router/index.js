@@ -5,7 +5,9 @@ import Home from '../components/Home';
 import Account from '../components/Account';
 
 import Clase from '../components/Clase';
-import EditClase from '../components/EditClase'
+import EditClase from '../components/EditClase';
+import EditClase from '../components/DeleteClase';
+import EditClase from '../components/NewClase';
 
 import Historial from '../components/Historial';
 import Pagos from '../components/Pagos'
@@ -41,6 +43,16 @@ const routes = [
     path: '/account/clase/:claseId/edit',
     name: 'edit',
     component: EditClase
+  },
+  {
+    path: '/account/clase/:claseId/delete',
+    name: 'delete',
+    component: DeleteClase
+  },
+  {
+    path: '/account/clase/:claseId/new',
+    name: 'new',
+    component: NewClase
   },
   {
     path: '/account/historial',

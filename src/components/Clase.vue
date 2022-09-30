@@ -9,9 +9,10 @@
 
 <!-- Errores presentados por ser bootstrap -->
                         <!-- <template slot ="action" slot-scope="data"> -->
-<!-- Agregar un boton que diga que la clase de cumplio y que automaticamente aparezca el registro en el historial-->
+
+<!-- Agregar un boton que diga que la clase se cumplio y que automaticamente aparezca el registro en el historial-->
                             <!-- <b-button size="sm" variant="primary":to="{name'EditClase', params: {claseId:data.item.id}}">Editar</b-button> -->
-                            <!-- <b-button size="sm" variant="danger">Eliminar</b-button> -->
+                            <!-- <b-button size="sm" variant="danger" :to="{name'DeleteClase', params: {claseId:data.item.id}}">Eliminar</b-button> -->
                         <!-- </template> -->
 
                     <!-- </d-table> -->

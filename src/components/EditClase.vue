@@ -1,5 +1,5 @@
 <template>
-    <div class="contenedor">
+    <div class="container">
         <div class="row">
             <div class="col text-left"></div>
             <h2>Editar Libro</h2>
@@ -64,6 +64,7 @@
 
 <script>
 import axios from 'axios';
+import swal from 'sweetalert'
 
 export default {
     data() {
@@ -90,7 +91,7 @@ export default {
                 this.form.estudiantes = response.data.estudiantes
                 this.form.profesor = response.data.profesor
 
-                alert("Clase actualizada exitosamente.")
+                swal("Clase actualizada exitosamente!", "", "success")
             }) 
             .catch ((error) => {
                 console.log(error)
@@ -118,6 +119,6 @@ export default {
 </script>
 
 
-<style scoped>
+<style>
 
 </style>
