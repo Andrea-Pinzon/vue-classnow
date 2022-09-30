@@ -33,6 +33,8 @@
 
 
 <script>
+import swal from 'sweetalert'
+
   export default {
     name: 'App',
     data: function(){
@@ -47,7 +49,7 @@
         if(this.is_auth)
           this.$router.push({name: "home"})
         else
-          this.$souter.push({name: "login"})
+          this.$router.push({name: "login"})
       },
       loadLogin: function(){
         this.$router.push({name: "login"})
@@ -65,6 +67,7 @@
         localStorage.clear();
         this.$router.push({name: "login"})
         this.verifyAuth();
+        swal("Cerraste sesion!", "", "success")
       },
       completedLogin: function(data) {
         localStorage.setItem("isAuth", true);

@@ -19,7 +19,9 @@
 </template>
 
 <script>
-    import axios from "../utils/axios"
+import swal from 'sweetalert'
+import axios from "../utils/axios"
+
     export default {
         name: 'Login', 
         data: function() {
@@ -40,6 +42,7 @@
                         token_refresh: res.data.refresh,
                     }
                     this.$emit('CompletedLogin', dataLogin)
+                    swal("Iniciaste sesion!", "", "success")
                 })
                 .catch((err) =>{
                     if(err.response.status == "401")
