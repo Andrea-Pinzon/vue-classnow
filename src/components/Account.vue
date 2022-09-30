@@ -1,5 +1,5 @@
 <template>
-    <div class="infoperfil">
+    <div v-if ="loaded" class="infoperfil">
         <div class="perfil">
             <h1>Informacion Personal</h1>
             <p>Username: <span>{{username}}</span></p>
