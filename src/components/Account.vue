@@ -2,13 +2,13 @@
     <div v-if ="loaded" class="infoperfil">
         <div class="perfil">
             <h1>Informacion Personal</h1>
-            <p>Username: <span>{{username}}</span></p>
-            <p>Nombre Completo: <span>{{name}} {{lastname}}</span></p>
-            <p>Correo: <span>{{email}}</span></p>
-            <p>Celular: <span>{{phone}}</span></p>
+            <p>Username: <span>{{ username }}</span></p>
+            <p>Nombre Completo: <span>{{ nombres }} {{ apellidos }}</span></p>
+            <p>Correo: <span>{{ email }}</span></p>
+            <p>Celular: <span>{{ celular }}</span></p>
         </div>
-
-        <div class="botonescost">
+        
+       <div class="botonescost">
             <button @click="volverahome">Agenda tu clase</button>
             <button @click="Historial">Historial</button>
             <button @click="Pagos">Metodos de pago</button>
@@ -21,67 +21,63 @@ import axios from '../utils/axios'
 import jwt_decode from "jwt-decode"
 
 export default {
-    name:"account",
+    name: "Account",
     data: function(){
         return {
-            username: '',
-            name: '',
-            lastname: '',
-            email: '',
-            phone: '',
-            rol: '',
+            username: "",
+            nombres: "",
+            apellidos: "",
+            email: "",
+            celular: "",
             loaded: false
         }
     },
     methods: {
-
-    /*Aqui comienza el error */
-    getData: async function(){
+        getData: async function (){
             if(localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null ){
                 this.$emit('logout')
             }
             await this.verifyToken();
 
             let token = localStorage.getItem("token_access");
-            let userId = jwt_decode(token).userid.toString();
+            let userId = jwt_decode(token).user_id.toString();
 
-            axios.get("user/"+ userId + "/", {headers:{"Authorization": "Bearer " + token}})
+            axios.get("user/"+ userId + "/", {headers: {"Authorization": "Bearer " + token}})
                 .then ((result) => {
                     this.username = result.data.username;
-                    this.name = result.data.name;
-                    this.lastname = result.data.lastname;
+                    this.nombres = result.data.nombres;
+                    this.apellidos = result.data.apellidos;
                     this.email = result.data.email;
-                    this.phone = result.data.phone;
+                    this.celular = result.data.celular;
                     this.rol = result.data.rol;
                     this.loaded = true;
                 })
                 .catch((err)=>{
-                    console.log(err)
                     this.$emit("logout")
                 })
-        },
-        
-        verifyToken: function(){
+            },
+            
+        verifyToken: function() {
             let refresh = localStorage.getItem("token_refresh")
             return axios.post("refresh/", {refresh})
-                .then(res => {
-                    localStorage.setItem("token_access", res.data.access)
-                })
-                .catch(()=>{
-                    this.$emit("logOut")
-                })
-        }
-    },
-    created: function(){
-        this.getData();
-    },
+                    .then(res => {
+                        localStorage.setItem("token_access", res.data.access)
+                    })
+                    .catch(()=>{
+                        this.$emit("logout")
+                    })
+            }
+        },
+        created: function(){
+            this.getData();
+        },
 
 /*Aqui termina */
 
 
 
 
-    volverahome: function(){
+   /* volverahome: function(){
         this.$router.push({name:'clase'})
       },
     Historial: function(){
@@ -89,8 +85,8 @@ export default {
       },
     Pagos: function(){
         this.$router.push({name:'pagos'})
-      },
-    }    
+      },*/
+}    
 </script>
 
 

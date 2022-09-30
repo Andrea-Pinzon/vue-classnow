@@ -20,7 +20,6 @@
 
 <script>
     import axios from "../utils/axios"
-
     export default {
         name: 'Login', 
         data: function() {
@@ -33,7 +32,6 @@
         },
         methods: {
             processLoginUser: function(){
-                
                 axios.post("login/", this.user, {headers: {}})
                 .then((res) => {
                     let dataLogin = {
@@ -43,9 +41,9 @@
                     }
                     this.$emit('CompletedLogin', dataLogin)
                 })
-                .catch((error) =>{
-                    if(error.response.status == "401")
-                        alert("Error 401: Credenciales Incorrectas")
+                .catch((err) =>{
+                    if(err.response.status == "401")
+                        alert("Error 401: Credenciales incorrectas")
                 })
             }
         }

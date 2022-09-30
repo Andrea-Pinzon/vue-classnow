@@ -5,7 +5,6 @@
       <h1>CN!</h1>
 
       <nav v-if="is_auth">
-        <span>Bienvenido {{username}}!!</span>
         <button @click="loadHome">Inicio</button>
         <button @click="loadAccount">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
@@ -20,7 +19,7 @@
     <div class="main-component">
       <router-view 
         @completedLogin = "completedLogin"
-        @logout="logout">
+        @logout = "logout" >
       </router-view>
     </div>
 
@@ -34,9 +33,8 @@
 
 
 <script>
-// no se puede dejar vacio
   export default {
-    name: 'app',
+    name: 'App',
     data: function(){
       return{
         is_auth: false,
@@ -52,20 +50,20 @@
           this.$souter.push({name: "login"})
       },
       loadLogin: function(){
-        this.$router.push({name:'login'})
+        this.$router.push({name: "login"})
       },
       loadSignUp: function(){
-        this.$router.push({name:'signup'})
+        this.$router.push({name: "signup"})
       },
       loadHome: function(){
-        this.$router.push({name:'home'})
+        this.$router.push({name: "home"})
       },
       loadAccount: function(){
-        this.$router.push({name:'account'})
+        this.$router.push({name: "account"})
       },
       logout: function(){
         localStorage.clear();
-        alert("Sesión Cerrada");
+        this.$router.push({name: "login"})
         this.verifyAuth();
       },
       completedLogin: function(data) {
@@ -73,7 +71,7 @@
         localStorage.setItem("username", data.username);
         localStorage.setItem("token_access", data.token_access);
         localStorage.setItem("token_refresh", data.token_refresh);
-        alert("Autenticación Exitosa")
+        /*alert("Autenticación exitosa")*/
         this.verifyAuth()
       }
     },
