@@ -62,9 +62,10 @@ export default {
                     token_refresh: res.data.refresh,
                 }
                 this.$emit('CompletedLogin', dataLogin)/*complete sign up! falta*/
+                    swal("Creaste un usuario", "", "success")
             })
             .catch((error) =>{
-                alert("Error: fallo en el registro.")
+                swal("Usuario Invalido", "", "error")
             })
         }
     }

@@ -24,7 +24,7 @@
     </div>
 
     <div class="footer">
-      <h2>Class-Now!</h2>
+      <span>Class-Now!</span>
     </div>
 
   </div>
@@ -74,7 +74,6 @@ import swal from 'sweetalert'
         localStorage.setItem("username", data.username);
         localStorage.setItem("token_access", data.token_access);
         localStorage.setItem("token_refresh", data.token_refresh);
-        /*alert("Autenticación exitosa")*/
         this.verifyAuth()
       },
       
@@ -175,6 +174,11 @@ import swal from 'sweetalert'
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+  }
+
+  .footer span {
+    font-size: 16px;
+    font-family: var(--font-letra);
+    font-weight: bold;
   }
 </style>

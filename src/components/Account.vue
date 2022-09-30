@@ -1,7 +1,7 @@
 <template>
     <div v-if ="loaded" class="infoperfil">
         <div class="perfil">
-            <h1>Informacion Personal</h1>
+            <span>Informacion Personal</span>
             <p>Username: <span>{{ username }}</span></p>
             <p>Nombre Completo: <span>{{ nombres }} {{ apellidos }}</span></p>
             <p>Correo: <span>{{ email }}</span></p>
@@ -9,10 +9,11 @@
         </div>
         
        <div class="botonescost">
-            <button @click="agendaTuClase" >Agenda tu clase</button>
+            <button @click="agendaTuClase" :to="{name: 'NewClase'}">Agenda tu clase</button>
             <button @click="Historial">Historial</button>
             <button @click="Pagos">Metodos de pago</button>
         </div>
+
     </div>
 </template>
 
@@ -33,6 +34,15 @@ export default {
         }
     },
     methods: {
+        agendaTuClase: function(){
+        this.$router.push({name: "clase"})
+        },
+        Historial: function(){
+        this.$router.push({name: "historial"})
+        },
+        Pagos: function(){
+        this.$router.push({name: "pagos"})
+        },
         getData: async function (){
             if(localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null ){
                 this.$emit('logout')
@@ -68,12 +78,9 @@ export default {
                     })
             }
         },
-        agendaTuClase: function(){
-        this.$router.push({name: "clase"})
-        },
         created: function(){
             this.getData();
-        }
+        },
 }    
 </script>
 
@@ -94,13 +101,16 @@ export default {
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 5px;
     }
 
-    .perfil h1 {
+    .perfil span {
         width: 80%;
         font-family: var(--font-letra);
         text-transform: uppercase;
+        font-size: 18px;
+        font-family: var(--font-letra);
+        font-weight: bold;
     }
 
     .perfil p {
@@ -112,7 +122,7 @@ export default {
         text-transform: uppercase;
     }
 
-    .perfil span {
+    .perfil p span {
         width: 60%;
         padding: 10px 20px;
         background-color: transparent;

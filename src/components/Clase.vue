@@ -1,13 +1,14 @@
 <template>
+    <div class="clase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus ad sequi sed corporis obcaecati autem ipsa qui quae! Amet impedit quaerat perferendis consectetur, tenetur reprehenderit veritatis temporibus eum ab.</div>
     <div class="contenedor">
         <div class="row">
             <div class="col text-left">
                 <h2>Lista de clases</h2>
 
-                <!--<div class="">
+                <div class="">
                     <b-button size="sm" :to="{name: 'NewClase'}" variant="primary">Nueva Clase</b-button>
                 </div>
-                <br>-->
+                <br>
 
                 <div class="col-md-12">
                     <b-table striped hover :items="clases" :fields="fields">
@@ -60,20 +61,6 @@ export default {
         this.getClass()
     }
 }
-
-
-//     methods: {
-//         volverahome: function(){
-//         this.$router.push({name:'home'})
-//       },
-//         Historial: function(){
-//         this.$router.push({name:'historial'})
-//       },
-//         Pagos: function(){
-//         this.$router.push({name:'pagos'})
-//       },
-//     }
-// }
 </script>
 
 
@@ -81,9 +68,9 @@ export default {
 
 
 <style>
-    /*.clase {
+    .clase {
         background-color: red;
-    }
+        }
 
     /* .clase {
         width: 100%;

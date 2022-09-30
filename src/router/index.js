@@ -34,28 +34,32 @@ const routes = [
     name: 'account',
     component: Account
   },
+
+
   {
-    path: '/account/clase',
+    path: '/clase',
     name: 'clase',
     component: Clase
   },
   {
-    path: '/account/clase/:claseId/edit',
+    path: '/clase/:claseId/edit',
     name: 'edit',
     component: EditClase
   },
   {
-    path: '/account/clase/:claseId/delete',
+    path: '/clase/:claseId/delete',
     name: 'delete',
     component: DeleteClase
   },
   {
-    path: '/account/clase/new',
+    path: '/clase/new',
     name: 'new',
     component: NewClase
   },
+
+  
   {
-    path: '/account/historial',
+    path: '/historial',
     name: 'historial',
     component: Historial
   },

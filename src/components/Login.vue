@@ -1,7 +1,7 @@
 <template>
     <div class="login_user">
         <div class="container_lu">
-            <h2>Iniciar Sesión</h2>
+            <span>Iniciar Sesión</span>
             <form @submit.prevent="processLoginUser">
                 <input type="text" v-model="user.username" placeholder="Username">
                 <br>
@@ -72,8 +72,11 @@ import axios from "../utils/axios"
         align-items: center;
         gap: 10px;
     }
-    .container_lu h2 {
+    .container_lu span {
         color: #000;
+        font-size: 20px;
+        font-family: var(--font-letra);
+        font-weight: bold;
     }
 
     .container_lu form {
