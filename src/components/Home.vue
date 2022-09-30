@@ -9,12 +9,12 @@
 
 <script>
     export default {
-        name: "Home",
-        data: function(){
-            return {
-                username: localStorage.getItem("username") ||  ''
-            }
-        }
+        // name: "Home",
+        // data: function(){
+        //     return {
+        //         username: localStorage.getItem("username") ||  ''
+        //     }
+        // }
     }
 </script>
 
