@@ -1,6 +1,5 @@
 <template>
-    <div class="clase">Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ducimus ad sequi sed corporis obcaecati autem ipsa qui quae! Amet impedit quaerat perferendis consectetur, tenetur reprehenderit veritatis temporibus eum ab.</div>
-    <div class="contenedor">
+    <div class="container">
         <div class="row">
             <div class="col text-left">
                 <h2>Lista de clases</h2>
