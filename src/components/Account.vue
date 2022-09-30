@@ -34,6 +34,53 @@ export default {
         }
     },
     methods: {
+
+    /*Aqui comienza el error */
+    getData: async function(){
+            if(localStorage.getItem("token_access") === null || localStorage.getItem("token_refresh") === null ){
+                this.$emit('logout')
+            }
+            await this.verifyToken();
+
+            let token = localStorage.getItem("token_access");
+            let userId = jwt_decode(token).userid.toString();
+
+            axios.get("user/"+ userId + "/", {headers:{"Authorization": "Bearer " + token}})
+                .then ((result) => {
+                    this.username = result.data.username;
+                    this.name = result.data.name;
+                    this.lastname = result.data.lastname;
+                    this.email = result.data.email;
+                    this.phone = result.data.phone;
+                    this.rol = result.data.rol;
+                    this.loaded = true;
+                })
+                .catch((err)=>{
+                    console.log(err)
+                    this.$emit("logout")
+                })
+        },
+        
+        verifyToken: function(){
+            let refresh = localStorage.getItem("token_refresh")
+            return axios.post("refresh/", {refresh})
+                .then(res => {
+                    localStorage.setItem("token_access", res.data.access)
+                })
+                .catch(()=>{
+                    this.$emit("logOut")
+                })
+        }
+    },
+    created: function(){
+        this.getData();
+    },
+
+/*Aqui termina */
+
+
+
+
     volverahome: function(){
         this.$router.push({name:'clase'})
       },
@@ -43,8 +90,7 @@ export default {
     Pagos: function(){
         this.$router.push({name:'pagos'})
       },
-    }
-}
+    }    
 </script>
 
 
