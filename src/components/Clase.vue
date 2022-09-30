@@ -1,12 +1,54 @@
 <template>
-    <div class="clase">
-        <h1>Aqui van las clases</h1>
+    <div class="contenedor">
+        <div class="row">
+            <div class="col text-left">
+                <h2>Lista de clases</h2>
+                
+                <div class="col-md-12">
+                    <d-table striped hover: items="books" : fields="fields">
+                    </d-table>
+                </div>
+                
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
-// export default {
-//     name: 'clase',
+import axios from 'axios';
+    
+export default {
+    name: 'clase',
+    data(){
+        return {
+            fields: [
+                { key: 'Id', label: 'Id'},
+                { key: 'tema', label: 'Tema'},
+                { key: 'hora', label: 'Hora'},
+                { key: 'fecha', label: 'Fecha'},
+                { key: 'estudiante.id', label: 'Estudiate'},
+                { key: 'profesor.id', label: 'Profesor'},
+                { key: 'action', label: 'Accion'}
+            ],
+            books: []
+        }
+    },
+    methods: {
+        getClass (){
+            const path = 'URL'/*no se cual es xD */
+            axios.get(path).then((response) => {
+                this.Class = response.data/*no estoy segura si es this.class */
+            })
+            .catch((error) =>{
+                console.log(Error)
+            })
+        }
+    },
+    created() {
+        this.getClass()
+    }
+}
+
 
 //     methods: {
 //         volverahome: function(){
