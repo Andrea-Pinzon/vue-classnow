@@ -81,7 +81,7 @@ export default {
     methods: {
         onsubmit(evt){
             evt.preventDefault()
-            const path= 'URL'
+            const path= 'https://classnow-be.herokuapp.com/clases/'
 
             axios.post(path, this.form).then((response) => {
                 this.form.tema = response.data.tema

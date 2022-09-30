@@ -82,7 +82,7 @@ export default {
     methods: {
         onsubmit(evt){
             evt.preventDefault()
-            const path= 'URL/${this.claseId}/'
+            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
 
             axios.put(path, this.form).then((response) => {
                 this.form.tema = response.data.tema
@@ -98,7 +98,7 @@ export default {
             })
         },
         getClasse(){
-            const path= 'URL/${this.claseId}/'
+            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
 
             axios.get(path).then((response) => {
                 this.form.tema = response.data.tema

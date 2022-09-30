@@ -63,7 +63,7 @@ const routes = [
     component: Historial
   },
   {
-    path: '/account/pagos',
+    path: '/pagos',
     name: 'pagos',
     component: Pagos
   }

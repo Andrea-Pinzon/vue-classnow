@@ -38,7 +38,7 @@ export default{
     },
     methods: {
         getClasse(){
-            const path= 'URL/${this.claseId}/'
+            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
 
             axios.get(path).then((response) => {
                 this.element.tema = response.data.tema
@@ -52,9 +52,9 @@ export default{
             })
         },
         deleteClase (){
-            const path= 'URL/${this.claseId}/'
+            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
             axios.delete(path).then((response) => {
-                location.href= '/account/clase'
+                location.href= '/clase'
             })
             .catch((error) => {
                 swal("No es posible eliminar clase", "", "error")

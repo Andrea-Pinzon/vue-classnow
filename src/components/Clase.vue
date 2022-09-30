@@ -13,7 +13,7 @@
                     <b-table striped hover :items="clases" :fields="fields">
 
 <!-- Errores presentados por ser bootstrap -->
-                        <!-- <template slot ="action" slot-scope="data"> -->
+                        <!-- <template slot="action" slot-scope="data"> -->
 
 <!-- Agregar un boton que diga que la clase se cumplio y que automaticamente aparezca el registro en el historial-->
                             <b-button size="sm" variant="primary" :to="{name:'EditClase', params: {claseId:data.item.id}}">Editar</b-button>
