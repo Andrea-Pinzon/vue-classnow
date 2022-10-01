@@ -1,4 +1,5 @@
 <template>
+    <div class="clase">
     <h2>Listado de clases</h2>
 
     <div class="table">
@@ -25,8 +26,10 @@
                 </tr>
             </tbody>
         </table>
-
     </div>
+
+    <button @click="volver" class="btn btn-primary">Atras</button>
+</div>
 </template>
 
 <script>
@@ -43,6 +46,9 @@ export default {
             this.getClases();
     },
     methods: {
+        volver: function(){
+        this.$router.push({name: "account"})
+        },
         getClases(){
             axios.get("https://classnow-be.herokuapp.com/clases/")
             .then(response =>{
@@ -56,7 +62,14 @@ export default {
 
 <style>
     .clase {
-        background-color: red;
+        width: 100%;
+        height: 100%;
+        padding: 30px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         }
 
     /* .clase {
