@@ -1,63 +1,23 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col text-left"></div>
-            <h2>Nueva Clase</h2>
-        </div>
-    </div>
+    <div>
+        <div>
+            <h2>Agendar Clase</h2>
 
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="car-body">
+            <form @submit.prevent= "processAgenda">
+                <input type="text" v-model="form.tema" placeholder="Tema"/>
+                <br>
+                <input type="text" v-model="form.hora" placeholder="Hora"/>
+                <br>
+                <input type="text" v-model="form.fecha" placeholder="Fecha"/>
+                <br>
+                <input type="text" v-model="form.profesor" placeholder="Profesor"/>
+                <br> 
+                <input type="text" v-model="form.estudiante" placeholder="Estudiante"/>
+                <br>
+                
 
-                    <form @Submit="onSubmit">
-<!-- espacios de la tabla -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Tema</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Tema de la clase" name="title" class="form-control" v-model.trim="form.tema">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Hora</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Hora" name="title" class="form-control" v-model.trim="form.hora">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Fecha</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Fecha" name="title" class="form-control" v-model.trim="form.fecha">
-                            </div>
-                        </div>
-<!-- ¿Como haran los estudiantes para agregarse? -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Estudiantes</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Estudiantes" name="title" class="form-control" v-model.trim="form.Estudiantes">
-                            </div>
-                        </div>
-<!-- ¿Hacer que aparezca aqui el nombre del profesor quien hace el registro? -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Profesor</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Profesor" name="title" class="form-control" v-model.trim="form.Profesor">
-                            </div>
-                        </div>
-<!-- Botones -->
-                        <div class="rows">
-                            <div class="col text-left"></div>
-                            <b-button type="submit" variante="primary">Crear</b-button>
-                            <b-button type="submit" class="btn-large-space" :to="{name:'Clase'}"> Cancelar</b-button>
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
+                <button type="submit">Agendar</button>
+            </form>
         </div>
     </div>
 </template>
@@ -79,11 +39,11 @@ export default {
         }
     },
     methods: {
-        onsubmit(evt){
-            evt.preventDefault()
+        processAgenda: function(){
             const path= 'https://classnow-be.herokuapp.com/clases/'
 
-            axios.post(path, this.form).then((response) => {
+            axios.post(path, this.form, {headers: {}})
+            .then((response) => {
                 this.form.tema = response.data.tema
                 this.form.hora = response.data.hora
                 this.form.fecha = response.data.fecha

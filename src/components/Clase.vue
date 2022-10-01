@@ -18,7 +18,6 @@
                 <tr v-for="clase in clases" :key="clase.id">
                     <td>{{clase.id}}</td>
                     <td>{{clase.tema}}</td>
-                    <td>{{clase.tema}}</td>
                     <td>{{clase.hora}}</td>
                     <td>{{clase.fecha}}</td>
                     <td>{{clase.profesor}}</td>
