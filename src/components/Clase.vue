@@ -27,7 +27,6 @@
         </table>
 
     </div>
-    
 </template>
 
 <script>

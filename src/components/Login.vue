@@ -46,7 +46,7 @@ import axios from "../utils/axios"
                 })
                 .catch((err) =>{
                     if(err.response.status == "401")
-                        alert("Error 401: Credenciales incorrectas")
+                        swal("Error 401: Credenciales incorrectas", "", "error")
                 })
             }
         }
