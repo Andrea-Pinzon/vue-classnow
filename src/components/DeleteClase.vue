@@ -11,11 +11,7 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col">
-                <b-button v-on:click="deleteClass" variant="danger">Eliminar</b-button>
-            </div>
-        </div>
+        <button @click="eliminar" class="btn btn-danger">Eliminar</button>
     </div>
 </template>
 
