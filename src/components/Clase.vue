@@ -1,30 +1,5 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col text-left">
-                <h2>Lista de clases</h2>
-
-                <div class="">
-                    <b-button size="sm" :to="{name: 'NewClase'}" variant="primary">Nueva Clase</b-button>
-                </div>
-                <br>
-
-                <div class="col-md-12">
-                    <b-table striped hover :items="clases" :fields="fields">
-
-<!-- Errores presentados por ser bootstrap -->
-                        <!-- <template slot="action" slot-scope="data"> -->
-
-<!-- Agregar un boton que diga que la clase se cumplio y que automaticamente aparezca el registro en el historial-->
-                            <b-button size="sm" variant="primary" :to="{name:'EditClase', params: {claseId:data.item.id}}">Editar</b-button>
-                            
-                            <b-button size="sm" variant="danger" :to="{name:'DeleteClase', params: {claseId:data.item.id}}">Eliminar</b-button>
-                        <!-- </template> -->
-                    </b-table>
-                </div>
-            </div>
-        </div>
-    </div>
+    <h2>titulo por aqui</h2>
 </template>
 
 <script>

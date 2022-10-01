@@ -3,6 +3,8 @@
         <div class="informacion">
             <h1>¡Bienvenido, <span>{{ username }}</span>!</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam, impedit. Earum doloremque illo, nobis quibusdam, odio recusandae consequuntur sit temporibus impedit enim, quia eos unde doloribus eligendi repellendus? Rem nobis temporibus perferendis fugit similique perspiciatis, libero, facilis laborum quaerat voluptates aliquam dicta aspernatur a vel delectus quo. Maiores molestias nisi cumque velit! Nesciunt praesentium alias repellendus distinctio dicta odit odio quibusdam.</p>
+            <button class="btn btn-primary">intento bootstrap</button>
+            <b-button size="sm" :to="{name: 'NewClase'}" variant="primary">inteto bootstravue</b-button>
         </div>
     </div>
 </template>
