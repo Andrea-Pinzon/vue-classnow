@@ -1,46 +1,59 @@
 <template>
-    <h2>titulo por aqui</h2>
+    <h2>Listado de clases</h2>
+
+    <div class="table">
+        <table class="table stripped bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Tema</th>
+                    <th>Hora</th>
+                    <th>Fecha</th>
+                    <th>Estudiante</th>
+                    <th>Profesor</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="clase in clases" :key="clase.id">
+                    <td>{{clase.id}}</td>
+                    <td>{{clase.tema}}</td>
+                    <td>{{clase.tema}}</td>
+                    <td>{{clase.hora}}</td>
+                    <td>{{clase.fecha}}</td>
+                    <td>{{clase.profesor}}</td>
+                    <td>{{clase.estudiante}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "../utils/axios";
     
 export default {
     name: 'clase',
     data(){
         return {
-            fields: [
-                { key: 'id', label: 'Id'},
-                { key: 'tema', label: 'Tema'},
-                { key: 'hora', label: 'Hora'},
-                { key: 'fecha', label: 'Fecha'},
-                { key: 'profesor', label: 'Profesor'},
-                { key: 'estudiante', label: 'Estudiante'},
-                { key: 'action', label: 'Accion'}
-            ],
-            clases: []
+            clases:null
         }
+    },
+    mounted(){
+            this.getClases();
     },
     methods: {
-        getClass (){
-            const path = 'https://classnow-be.herokuapp.com/clases/' /*no se cual es xD */
-            axios.get(path).then((response) => {
-                this.clases = response.data/*no estoy segura si es this.class */
+        getClases(){
+            axios.get("https://classnow-be.herokuapp.com/clases/")
+            .then(response =>{
+                this.clases = response.data
             })
-            .catch((error) =>{
-                console.log(error)
-            })
+            .catch(err => console.log(err))
         }
-    },
-    created() {
-        this.getClass()
     }
 }
 </script>
-
-
-
-
 
 <style>
     .clase {
