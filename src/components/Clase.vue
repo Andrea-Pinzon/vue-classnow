@@ -1,5 +1,9 @@
 <template>
-    <h2>titulo por aqui</h2>
+    <div class="container">
+        <h2 class="text-center text-dark">titulo por aqui</h2>
+
+        <button @click="volver" class="btn btn-primary">Atras</button>
+    </div>
 </template>
 
 <script>
@@ -22,6 +26,9 @@ export default {
         }
     },
     methods: {
+        volver: function(){
+        this.$router.push({name: "account"})
+        },
         getClass (){
             const path = 'https://classnow-be.herokuapp.com/clases/' /*no se cual es xD */
             axios.get(path).then((response) => {
