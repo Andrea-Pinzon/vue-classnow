@@ -7,8 +7,8 @@
                 <input type="email" name ="email" placeholder="Correo" required>
                 <input type="text" name ="phone" placeholder="Celular" required>
                 <input type="text" name ="subject" placeholder="Asunto" required>
-                <textarea type="comments" cols="10" rows="1" placeholder="Escriba aqui..." required></textarea>
-                <br>
+                <textarea type="comments" placeholder="Escriba aqui..." required></textarea>
+                
                 <input type="submit" value="Enviar" @click="exito" class="botton">
                 <input type="hidden" name="_next" value="https://class-nowapp-vue.herokuapp.com/contacto">
                 <input type="hidden" name="_captcha" value="false">
@@ -27,11 +27,12 @@ import swal from 'sweetalert'
                     username: localStorage.getItem("username") ||  ''
             }
         },
-        methods: {
-            exito: function(){
-            swal("Mensaje enviado!", "", "success")
-        },
-    }
+    //La alerta no funciona por que falta decir que todos los campos esten llenos.
+    //     methods: {
+    //         exito: function(){
+    //         swal("Mensaje enviado!", "", "success")
+    //     },
+    // }
 }
 </script>
 
@@ -65,17 +66,18 @@ import swal from 'sweetalert'
 
     .info form {
         width: 90%;
-        height: 80%;
+        height: 70%;
         overflow-y: auto;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-evenly;
         align-items: center;
+        align-content: center;
         gap: 10px;
     }
 
     .info input, .info textarea {
-        width: 50%;
+        width: 40%;
         padding: 10px 10px;
         background-color: transparent;
         border: 1px solid #000;
