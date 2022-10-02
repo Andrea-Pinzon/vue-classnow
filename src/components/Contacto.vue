@@ -55,7 +55,7 @@ import swal from 'sweetalert'
     }
     .info {
         width: 80%;
-        height: 85%;
+        height: 90%;
         background-color: rgba(255,255,255, .5);
         border-radius: 20px;
         display: flex;
@@ -81,7 +81,7 @@ import swal from 'sweetalert'
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 8px;
+        gap: 10px;
     }
 
     .info label {

@@ -8,6 +8,7 @@
         <button @click="loadHome">Inicio</button>
         <button @click="loadAccount">Cuenta</button>
         <button @click="logout">Cerrar Sesión</button>
+        <button @click="contact">Contactenos</button>
       </nav>
 
       <nav v-else>
