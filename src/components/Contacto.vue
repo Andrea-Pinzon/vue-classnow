@@ -4,19 +4,19 @@
             <h2>Contactenos</h2>
             <form action="https://formsubmit.co/9047145694742bc000b16ea1a5cad353" method="POST">
                 <label for="Nombre">Nombre Completo:</label>
-                <input type="text" name ="name">
+                <input type="text" name ="name" placeholder="Nombre Completo" required>
                 <br>
                 <label for="email">Correo Electronico:</label>
-                <input type="email" name ="email">
+                <input type="email" name ="email" placeholder="Correo" required>
                 <br>
                 <label for="phone">Celular:</label>
-                <input type="text" name ="phone">
+                <input type="text" name ="phone" placeholder="Celular" required>
                 <br>
                 <label for="subject">Asunto:</label>
-                <input type="text" name ="subject">
+                <input type="text" name ="subject" placeholder="Asunto" required>
                 <br>
                 <label for="comments">Comentarios:</label>
-                <textarea type="comments" cols="10" rows="1"></textarea>
+                <textarea type="comments" cols="10" rows="1" placeholder="Escriba aqui..." required></textarea>
                 <br>
                 <input type="submit" value="Enviar" @click="exito" class="botton">
 

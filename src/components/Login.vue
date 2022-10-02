@@ -3,9 +3,9 @@
         <div class="container_lu">
             <span>Iniciar Sesión</span>
             <form @submit.prevent="processLoginUser">
-                <input type="text" v-model="user.username" placeholder="Username">
+                <input type="text" v-model="user.username" placeholder="Username" required>
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password">
+                <input type="password" v-model="user.password" placeholder="Password" required>
                 <br>
                 <button type="submit">Iniciar Sesión</button>
             </form>

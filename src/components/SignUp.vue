@@ -4,19 +4,19 @@
             <h2>Registrarse</h2>
 
             <form @submit.prevent= "processSignUp">
-                <input type="text" v-model="user.username" placeholder="Username"/>
+                <input type="text" v-model="user.username" placeholder="Username" required>
                 <br>
-                <input type="text" v-model="user.nombres" placeholder="Nombres"/>
+                <input type="text" v-model="user.nombres" placeholder="Nombres" required>
                 <br>
-                <input type="text" v-model="user.apellidos" placeholder="Apellidos"/>
+                <input type="text" v-model="user.apellidos" placeholder="Apellidos" required>
                 <br>
-                <input type="email" v-model="user.email" placeholder="Email"/>
+                <input type="email" v-model="user.email" placeholder="Email" required>
                 <br> 
-                <input type="text" v-model="user.celular" placeholder="Celular"/>
+                <input type="text" v-model="user.celular" placeholder="Celular" required>
                 <br>
-                <input type="password" v-model="user.password" placeholder="Password"/>
+                <input type="password" v-model="user.password" placeholder="Password" required>
                 <br>
-                <input type="text" v-model="user.rol" placeholder="Rol"/>
+                <input type="text" v-model="user.rol" placeholder="Rol" required>
                 <br>
 
                 <button type="submit">Registrarse</button>
