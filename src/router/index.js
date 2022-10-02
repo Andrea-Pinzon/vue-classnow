@@ -3,6 +3,7 @@ import Login from '../components/Login';
 import SignUp from '../components/SignUp';
 import Home from '../components/Home';
 import Account from '../components/Account';
+import Contacto from '../components/Contacto';
 
 import Clase from '../components/Clase';
 import EditClase from '../components/EditClase';
@@ -23,6 +24,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/contacto',
+    name: 'contacto',
+    component: Contacto
   },
   {
     path: '/signup',

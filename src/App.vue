@@ -13,6 +13,7 @@
       <nav v-else>
         <button @click="loadLogin">Iniciar Sesión</button>
         <button @click="loadSignUp">Registrarse</button>
+        <button @click="contact">Contactenos</button>
       </nav>
     </div>
 
@@ -53,6 +54,9 @@ import swal from 'sweetalert'
       },
       loadLogin: function(){
         this.$router.push({name: "login"})
+      },
+      contact: function(){
+        this.$router.push({name: "contacto"})
       },
       loadSignUp: function(){
         this.$router.push({name: "signup"})
