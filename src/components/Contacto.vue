@@ -2,7 +2,7 @@
     <div class="formulario_contacto">
         <div class="info">
             <h1>Envíe su formulario</h1>
-            <form action="https://formsubmit.co/9047145694742bc000b16ea1a5cad353" method="POST">
+            <form action="https://formsubmit.co/milenitha.666666@gmail.com" method="POST">
                 <label for="Nombre">Nombre Completo</label>
                 <input type="text" name ="name">
 
@@ -20,7 +20,7 @@
 
                 <input type="submit" value="Enviar" @click="exito">
 
-                <input type="hidden" name="_next" value="">
+                <input type="hidden" name="_next" value="https://class-nowapp-vue.herokuapp.com/contacto">
                 <input type="hidden" name="_captcha" value="false">
             </form>
         </div>
