@@ -7,7 +7,6 @@ import Contacto from '../components/Contacto';
 
 import Clase from '../components/Clase';
 import EditClase from '../components/EditClase';
-import DeleteClase from '../components/DeleteClase';
 import NewClase from '../components/NewClase';
 
 import Historial from '../components/Historial';
@@ -51,11 +50,6 @@ const routes = [
     path: '/edit/:id',
     name: 'edit',
     component: EditClase
-  },
-  {
-    path: '/clase/:claseId/delete',
-    name: 'delete',
-    component: DeleteClase
   },
   {
     path: '/clase/new',

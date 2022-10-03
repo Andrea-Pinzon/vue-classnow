@@ -21,7 +21,7 @@
                 <br>
                 
 
-                <button type="submit">Editar</button>
+                <button type="submit" @click="volver">Editar</button>
             </form>
         </div>
     </div>
@@ -39,6 +39,9 @@ export default {
         }
     },
     methods: {
+        volver: function(){
+        this.$router.push({name: "account"})
+        },
         update() {
             let post = {
                 "tema": this.clases.tema,

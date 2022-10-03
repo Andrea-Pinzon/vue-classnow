@@ -3,7 +3,7 @@
     <h2>Listado de clases</h2>
 
     <div class="bot-pri">
-        <button @click="nuevo" class="btn btn-outline-success">Nuevo</button>
+        <button @click="newclass" class="btn btn-outline-success">Nuevo</button>
     </div>
 
     <div class="table">
@@ -56,6 +56,12 @@ export default {
         this.getClases();
     },
     methods: {
+        newclass: function(){
+        this.$router.push({name: "new"})
+        },
+        volver: function(){
+        this.$router.push({name: "account"})
+        },
         getClases(){
             axios.get("https://classnow-be.herokuapp.com/clases/")
             .then(response =>{

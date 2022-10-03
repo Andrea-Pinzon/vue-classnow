@@ -18,6 +18,8 @@
 
                 <button type="submit">Agendar</button>
             </form>
+
+            <button @click="volver" class="btn btn-primary">Atras</button>  
         </div>
     </div>
 </template>
@@ -39,6 +41,9 @@ export default {
         }
     },
     methods: {
+        volver: function(){
+        this.$router.push({name: "clase"})
+        },
         processAgenda: function(){
             const path= 'https://classnow-be.herokuapp.com/clases/'
 
