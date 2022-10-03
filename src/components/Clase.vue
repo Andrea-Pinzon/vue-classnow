@@ -28,8 +28,8 @@
                     <td>{{clase.profesor}}</td>
                     <td>{{clase.estudiante}}</td>
                     <td>
-                        <button @click="editar" class="btn btn-primary">Editar</button>
-                        <button @click="eliminar" class="btn btn-danger">Eliminar</button>
+                        <button v-on:click="updateClases(clase.id)" class="btn btn-primary">Editar</button>
+                        <button v-on:click="deleteClases(clase.id)" class="btn btn-danger">Eliminar</button>
                     </td>
                 </tr>
             </tbody>
@@ -53,31 +53,29 @@ export default {
         }
     },
     mounted(){
-            this.getClases();
+        this.getClases();
     },
     methods: {
-        volver: function(){
-        this.$router.push({name: "account"})
-        },
-        nuevo: function(){
-        this.$router.push({name: "new"})
-        },
-        editar: function(){
-        this.$router.push({name: "delete"})
-        },
-        eliminar: function(){
-        this.$router.push({name: "edit"})
-        },
-
         getClases(){
             axios.get("https://classnow-be.herokuapp.com/clases/")
             .then(response =>{
                 this.clases = response.data
             })
             .catch(err => console.log(err))
+        },
+        deleteClases(id){
+            axios.delete("https://classnow-be.herokuapp.com/clases/" + id + "/")
+            .then(result => {
+                this.getClases();
+            })
+        },
+        updateClases(id){
+            console.log(id)
+            this.$router.push('edit/' + id)
         }
     }
 }
+
 </script>
 
 <style>

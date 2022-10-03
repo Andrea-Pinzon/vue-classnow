@@ -48,7 +48,7 @@ const routes = [
     component: Clase
   },
   {
-    path: '/clase/:claseId/edit',
+    path: '/edit/:id',
     name: 'edit',
     component: EditClase
   },

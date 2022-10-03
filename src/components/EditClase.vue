@@ -1,63 +1,28 @@
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col text-left"></div>
-            <h2>Editar Clase</h2>
-        </div>
-    </div>
+    <div>
+        <div>
+            <h2>Editar clase</h2>
 
-    <div class="row">
-        <div class="col">
-            <div class="card">
-                <div class="car-body">
+            <form @submit.prevent= "update">
+                <label for="tema">Tema:</label>
+                <input type="text" id="tema" v-model="clases.tema"/>
+                <br>
+                <label for="hora">Hora:</label>
+                <input type="text" id="hora" v-model="clases.hora"/>
+                <br>
+                <label for="fecha">Fecha</label>
+                <input type="text" id="fecha" v-model="clases.fecha"/>
+                <br>
+                <label for="profesor">Profesor:</label>
+                <input type="text" id="profesor" v-model="clases.profesor"/>
+                <br>
+                <label for="estudiante">Estudiante:</label> 
+                <input type="text" id="estudiante" v-model="clases.estudiante"/>
+                <br>
+                
 
-                    <form @Submit="onSubmit">
-<!-- espacios de la tabla -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Tema</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Tema de la clase" name="title" class="form-control" v-model.trim="form.tema">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Hora</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Hora" name="title" class="form-control" v-model.trim="form.hora">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Fecha</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Fecha" name="title" class="form-control" v-model.trim="form.fecha">
-                            </div>
-                        </div>
-<!-- ¿Como haran los estudiantes para agregarse? -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Estudiantes</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Estudiantes" name="title" class="form-control" v-model.trim="form.Estudiantes">
-                            </div>
-                        </div>
-<!-- ¿Hacer que aparezca aqui el nombre del profesor quien hace el registro? -->
-                        <div class="form-group row">
-                            <label for="title" class="col.sm2 col-form-label">Profesor</label>
-                            <div class="col-sm-6">
-                                <input type="text" placeholder="Profesor" name="title" class="form-control" v-model.trim="form.Profesor">
-                            </div>
-                        </div>
-<!-- Botones -->
-                        <div class="rows">
-                            <div class="col text-left"></div>
-                            <b-button type="submit" variante="primary">Editar</b-button>
-                            <b-button type="submit" class="btn-large-space" :to="{name:'Clase'}"> Cancelar</b-button>
-                        </div>
-
-                    </form>
-
-                </div>
-            </div>
+                <button type="submit">Editar</button>
+            </form>
         </div>
     </div>
 </template>
@@ -67,53 +32,39 @@ import axios from 'axios';
 import swal from 'sweetalert'
 
 export default {
+    name: "EditClase",
     data() {
         return {
-            claseId: this.$route.params.claseId,
-            form:{
-                tema: '',
-                hora: '',
-                fecha: '',
-                estudiantes: '',
-                profesor: '',
-            }
+            clases: [],
         }
     },
     methods: {
-        onsubmit(evt){
-            evt.preventDefault()
-            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
-
-            axios.put(path, this.form).then((response) => {
-                this.form.tema = response.data.tema
-                this.form.hora = response.data.hora
-                this.form.fecha = response.data.fecha
-                this.form.estudiantes = response.data.estudiantes
-                this.form.profesor = response.data.profesor
-
-                swal("Clase actualizada exitosamente!", "", "success")
-            }) 
-            .catch ((error) => {
-                console.log(error)
+        update() {
+            let post = {
+                "tema": this.clases.tema,
+                "hora": this.clases.hora,
+                "fecha": this.clases.fecha,
+                "profesor": this.clases.profesor,
+                "estudiante": this.clases.estudiante,
+            }
+            axios.put("https://classnow-be.herokuapp.com/clases/" + this.$route.params.id + "/", post)
+            .then(result =>{
+                this.clases.tema="";
+                this.clases.hora="";
+                this.clases.fecha="";
+                this.clases.profesor="";
+                this.clases.estudiante="";
             })
         },
-        getClasse(){
-            const path= 'https://classnow-be.herokuapp.com/clases/${this.claseId}/'
-
-            axios.get(path).then((response) => {
-                this.form.tema = response.data.tema
-                this.form.hora = response.data.hora
-                this.form.fecha = response.data.fecha
-                this.form.estudiantes = response.data.estudiantes
-                this.form.profesor = response.data.profesor
-            }) 
-            .catch ((error) => {
-                console.log(error)
-            })
-        }
     },
-    created(){
-        this.getClasse
+    mounted() {
+        let slug = this.$route.params.id;
+        let adress = "https://classnow-be.herokuapp.com/clases/"
+        axios.get(adress + slug + "/")
+        .then(data => {
+            this.clases = data.data;
+            console.log(data)
+        })
     }
 }
 </script>
