@@ -12,6 +12,11 @@
 
                 <button type="submit" class="btn btn-primary">Editar</button>
             </form>
+
+            <div class="bot-pri">
+                <button @click="volver" class="btn btn-primary">Atras</button>    
+            </div>
+
         </div>
     </div>
 </template>
@@ -28,6 +33,9 @@ export default {
         }
     },
     methods: {
+        volver: function(){
+        this.$router.push({name: "clase"})
+        },
         update() {
             let post = {
                 "tema": this.clases.tema,
@@ -68,7 +76,6 @@ export default {
         overflow-y: auto;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         }
 
     .editt h2 {
