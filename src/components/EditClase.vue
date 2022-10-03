@@ -5,8 +5,8 @@
 
             <form @submit.prevent= "update">
                 <input type="text" id="tema" v-model="clases.tema" placeholder="Tema">
-                <input type="text" id="hora" v-model="clases.hora" placeholder="Hora">
-                <input type="text" id="fecha" v-model="clases.fecha" placeholder="Fecha">
+                <input type="text" id="hora" v-model="clases.hora" placeholder="Hora - 00:00:00">
+                <input type="text" id="fecha" v-model="clases.fecha" placeholder="Fecha - Año/Mes/Dia">
                 <input type="text" id="profesor" v-model="clases.profesor" placeholder="Profesor">
                 <input type="text" id="estudiante" v-model="clases.estudiante" placeholder="Estudiante">               
 
