@@ -1,27 +1,16 @@
 <template>
-    <div>
+    <div class="editt">
         <div>
             <h2>Editar clase</h2>
 
             <form @submit.prevent= "update">
-                <label for="tema">Tema:</label>
-                <input type="text" id="tema" v-model="clases.tema"/>
-                <br>
-                <label for="hora">Hora:</label>
-                <input type="text" id="hora" v-model="clases.hora"/>
-                <br>
-                <label for="fecha">Fecha</label>
-                <input type="text" id="fecha" v-model="clases.fecha"/>
-                <br>
-                <label for="profesor">Profesor:</label>
-                <input type="text" id="profesor" v-model="clases.profesor"/>
-                <br>
-                <label for="estudiante">Estudiante:</label> 
-                <input type="text" id="estudiante" v-model="clases.estudiante"/>
-                <br>
-                
+                <input type="text" id="tema" v-model="clases.tema" placeholder="Tema">
+                <input type="text" id="hora" v-model="clases.hora" placeholder="Hora">
+                <input type="text" id="fecha" v-model="clases.fecha" placeholder="Fecha">
+                <input type="text" id="profesor" v-model="clases.profesor" placeholder="Profesor">
+                <input type="text" id="estudiante" v-model="clases.estudiante" placeholder="Estudiante">               
 
-                <button type="submit" @click="volver">Editar</button>
+                <button type="submit" class="btn btn-primary">Editar</button>
             </form>
         </div>
     </div>
@@ -39,9 +28,6 @@ export default {
         }
     },
     methods: {
-        volver: function(){
-        this.$router.push({name: "account"})
-        },
         update() {
             let post = {
                 "tema": this.clases.tema,
@@ -74,5 +60,49 @@ export default {
 
 
 <style>
+    .editt {
+        width: 100%;
+        height: 100%;
+        padding: 10px 100px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
 
+    .editt h2 {
+        width: 100%;
+        font-family: var(--font-titulos);
+        text-align: center;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    .editt form {
+        width: 90%;
+        height: 90%;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+        gap: 5px;
+    }
+
+    .editt input {
+        width: 40%;
+        padding: 10px 10px;
+        background-color: transparent;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+
+    .bot-pri {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px 0;
+    }
 </style>

@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="new">
         <div>
             <h2>Agendar Clase</h2>
 
@@ -16,10 +16,12 @@
                 <br>
                 
 
-                <button type="submit">Agendar</button>
+                <button type="submit" class="btn btn-primary">Agendar</button>
             </form>
 
-            <button @click="volver" class="btn btn-primary">Atras</button>  
+            <div class="bot-pri">
+                <button @click="volver" class="btn btn-primary">Atras</button>    
+            </div> 
         </div>
     </div>
 </template>
@@ -70,5 +72,49 @@ export default {
 
 
 <style>
+    .new {
+        width: 100%;
+        height: 100%;
+        padding: 10px 100px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        }
 
+    .new h2 {
+        width: 100%;
+        font-family: var(--font-titulos);
+        text-align: center;
+        text-transform: uppercase;
+        color: #000;
+    }
+
+    .new form {
+        width: 90%;
+        height: 85%;
+        overflow-y: auto;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        align-content: center;
+        gap: 5px;
+    }
+
+    .new input {
+        width: 40%;
+        padding: 10px 10px;
+        background-color: transparent;
+        border: 1px solid #000;
+        border-radius: 10px;
+    }
+
+    .bot-pri {
+        display: flex;
+        justify-content: flex-end;
+        padding: 5px 0;
+    }
 </style>
